@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 use App\Interfaces\BookRepositoryInterface;
-use App\Interfaces\EloquentBookRepository;
+use App\Repositories\EloquentBookRepository;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind( BookRepositoryInterface::class, EloqientBookRepository::class );
+        $this->app->bind(BookRepositoryInterface::class,EloquentBookRepository::class);
     }
 
     /**
