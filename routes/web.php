@@ -8,3 +8,4 @@ Route::get('/', function () {
 });
 
 Route::get('/books',[BookController::class,'index'])->name('books.index');
+Route::post('/add-book',[BookController::class,'store'])->name('books.store');

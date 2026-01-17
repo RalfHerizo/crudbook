@@ -8,7 +8,7 @@ use App\Models\Book;
 class EloquentBookRepository implements BookrepositoryInterface
 {
     public function getAll(){
-        return Book::all();
+        return Book::orderBy('created_at','desc')->get();
     }
 
     public function getById($id){
@@ -16,7 +16,7 @@ class EloquentBookRepository implements BookrepositoryInterface
     }
 
     public function create( array $data ){
-        $book = Book::create($date);
+        $book = Book::create($data);
     }
 
     public function update($id, array $data){
