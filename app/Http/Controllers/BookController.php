@@ -29,9 +29,11 @@ class BookController extends Controller
         return view('books.show',compact('book'));
     }
     
-    public function udpate($id, Request $request){
+    public function update($id, Request $request){
         $details = $request->only(['title','author', 'description']);
-        $this->bookRepository->udpate( $id , $details );
+        $this->bookRepository->update( $id , $details );
+
+        return redirect()->back()->with('success','Livre mis à jour!');
     }
 
     public function destroy($id){
