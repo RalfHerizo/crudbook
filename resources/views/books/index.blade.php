@@ -159,9 +159,9 @@
                                                         </button>
                                                     </li>
                                                     <li>
-                                                        <button type="button" data-modal-target="deleteModal"
+                                                        <button data-id={{ $book->id }} type="button" data-modal-target="deleteModal"
                                                             data-modal-toggle="deleteModal"
-                                                            class="flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 text-red-500 dark:hover:text-red-400">
+                                                            class="delete-book-button flex w-full items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 text-red-500 dark:hover:text-red-400">
                                                             <svg class="w-4 h-4 mr-2" viewbox="0 0 14 15" fill="none"
                                                                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -351,16 +351,6 @@
                                 class="text-body bg-neutral-primary-soft border border-default hover:bg-neutral-secondary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary-soft shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
                                 Mettre à jour
                             </button>
-                            <button type="button"
-                                class="text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
-                                <svg class="mr-1 -ml-1 w-5 h-5" fill="currentColor" viewbox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                                Supprimer
-                            </button>
                         </div>
                     </form>
                 </div>
@@ -413,16 +403,6 @@
                             <button type="button"
                                 class="py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Preview</button>
                         </div>
-                        <button type="button"
-                            class="inline-flex items-center text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-900">
-                            <svg aria-hidden="true" class="w-5 h-5 mr-1.5 -ml-1" fill="currentColor"
-                                viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            Supprimer
-                        </button>
                     </div>
                 </div>
             </div>
@@ -450,16 +430,16 @@
                             d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
                             clip-rule="evenodd" />
                     </svg>
-                    <p class="mb-4 text-gray-500 dark:text-gray-300">Voulez-vous tout supprimer?</p>
+                    <p class="mb-4 text-gray-500 dark:text-gray-300">Voulez-vous supprimer ce livre?</p>
                     <div class="flex justify-center items-center space-x-4">
                         <button data-modal-toggle="deleteModal" type="button"
                             class="py-2 px-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
                             Annuler
                         </button>
-                        <button type="submit"
+                        <a id="confirm-delete-button" type="submit"
                             class="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-900">
                             Oui
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -469,10 +449,12 @@
         <script>
             document.addEventListener('DOMContentLoaded', ()=>{
                 const editButtons = document.querySelectorAll('.edit-book-button');
+                const deleteButtons = document.querySelectorAll('.delete-book-button');
+                const confirmDeleteButton = document.getElementById('confirm-delete-button');
+
                 const modal = document.getElementById('updateProductModal');
                 const form = modal.querySelector('form');
                 const actionUrl = form.action;
-
                 
                 editButtons.forEach(button => {
                     button.addEventListener('click',()=>{
@@ -488,8 +470,19 @@
                         const updateBookUrl = `${window.location.origin}/update-book/${id}`;
                         form.setAttribute('action', updateBookUrl);
 
-                        console.log("Voici le nouveau URL: ",updateBookUrl);
+                        console.log("Updated URL: ",updateBookUrl);
+                    });
+                });
+
+                deleteButtons.forEach( button => {
+                    button.addEventListener('click',()=>{
+                        const id = button.getAttribute('data-id');
+
+                        const deleteUrl = `${window.location.origin}/delete-book/${id}`;
+                        confirmDeleteButton.setAttribute('href', deleteUrl);
                         
+                        console.log('Deleted URL : ' ,deleteUrl);                      
+
                         
                     });
                 });
