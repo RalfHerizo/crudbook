@@ -45,12 +45,7 @@
                 </div>
                 <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4"
                     aria-label="Table navigation">
-                    <span class="text-sm font-normal text-gray-50 dark:text-gray-400">
-                        Résultats de
-                        <span class="font-semibold text-gray-50 dark:text-white">1 à 10</span>
-                        sur
-                        <span class="font-semibold text-gray-50 dark:text-white">1000</span>
-                    </span>
+                    <x-tables.search-result />
                     <ul class="inline-flex items-stretch -space-x-px">
                         <li>
                             <a href="#"
