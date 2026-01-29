@@ -1,39 +1,37 @@
 @props(['id','title'])
 
 <x-modal-layout id="{{ $id }}" title="{{ $title }}">
-    <form method="POST" action="{{ route('books.store') }}">
+    <form method="POST" action="">
         @csrf
         <div class="grid gap-4 mb-4 sm:grid-cols-2">
             <div>
                 <label for="title"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Titre</label>
-                <input type="text" name="title" id="title"
+                <input id="data-title-edit-modal-book" type="text" name="title" id="title"
+                    value="Harry Potter à l'école des sorciers"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                    placeholder="Ecrire le titre ici..." required="">
+                    placeholder="Ex. Apple iMac 27&ldquo;">
             </div>
             <div>
                 <label for="author"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Auteur</label>
-                <input type="text" name="author" id="author"
+                <input id="data-title-author-modal-book" type="text" name="author" id="author"
+                    value=""
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                    placeholder="Ecrire le nom de l'auteur ici..." required="">
+                    placeholder="Ex. Apple">
             </div>
-            <div class="sm:col-span-2"><label for="description"
+            <div class="sm:col-span-2"><label for="data-title-description-modal-book"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                <textarea id="description" rows="4"
+                <textarea id="data-title-description-modal-book" name="description" rows="5"
                     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                    name="description" placeholder="Ecrire la description du livre ici..."></textarea>
+                    placeholder="Write a description..."></textarea>
             </div>
         </div>
-        <button type="submit"
-            class="flex text-body bg-neutral-primary-soft border border-default hover:bg-neutral-secondary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary-soft shadow-xs font-medium leading-5 rounded-base text-sm px-2 py-2.5 focus:outline-none">
-            <svg class="mr-1 -ml-1 w-6 h-6" fill="currentColor" viewbox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                    clip-rule="evenodd" />
-            </svg>
-            Ajouter un livre
-        </button>
+        <div class="flex items-center space-x-4">
+            <button type="submit"
+                class="text-body bg-neutral-primary-soft border border-default hover:bg-neutral-secondary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary-soft shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+                Mettre à jour
+            </button>
+        </div>
     </form>
 </x-modal-layout>
