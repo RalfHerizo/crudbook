@@ -11,7 +11,7 @@ class StoreBookRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -41,7 +41,7 @@ class StoreBookRequest extends FormRequest
 
             'title.max' => "Le titre est trop long.",
             'author.min' => "Le nom de l'auteur est trop court.",
-            'description.max' => "La description est trop courte."
+            'description.min' => "La description est trop courte."
         ];
     }
 }

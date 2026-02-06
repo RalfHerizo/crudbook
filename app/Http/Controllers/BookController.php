@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Request\StoreBookRequest;
+use App\Http\Requests\StoreBookRequest;
 use App\Interfaces\BookRepositoryInterface;
 
 class BookController extends Controller
@@ -21,9 +21,9 @@ class BookController extends Controller
     
     public function store(StoreBookRequest $request){
         
-        $validate_data = $request->validate();
+        $validate_data = $request->validated();
 
-        $this->bookRepository->create($details);
+        $this->bookRepository->create($validate_data);
         return redirect()->back()->with('success','Live créé !');
     }
 
