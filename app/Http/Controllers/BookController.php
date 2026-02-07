@@ -32,9 +32,10 @@ class BookController extends Controller
         return view('books.show',compact('book'));
     }
     
-    public function update($id, Request $request){
-        $details = $request->only(['title','author', 'description']);
-        $this->bookRepository->update( $id , $details );
+    public function update($id, StoreBookRequest $request){
+        
+        $validate_data = $request->validated();
+        $this->bookRepository->update( $id , $validate_data );
 
         return redirect()->back()->with('success','Livre mis à jour!');
     }
