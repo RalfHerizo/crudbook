@@ -7,8 +7,22 @@ use App\Models\Book;
 
 class EloquentBookRepository implements BookrepositoryInterface
 {
-    public function getPaginated($perPage = 10){
-        return Book::orderBy('created_at','desc')->paginate($perPage);
+    public function getPaginated($perPage = 10, ?string $search = null){
+
+        if(isset($search)){
+            return Book::query()
+                ->where(function ($query) use ($search) {
+                    $query->where('title', 'like', "%" . $search . "%")
+                        ->orWhere('author', 'like', "%" . $search . "%")
+                        ->orWhere('description', 'like', "%" . $search . "%");
+                })
+                ->paginate(10);    
+        
+        } else {
+
+            return Book::orderBy('created_at','desc')
+            ->paginate(10);
+        }
     }
 
     public function getAll(){

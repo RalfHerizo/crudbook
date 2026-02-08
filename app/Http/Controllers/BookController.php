@@ -14,8 +14,12 @@ class BookController extends Controller
         $this->bookRepository = $bookRepository;
     }
 
-    public function index(){
-        $books = $this->bookRepository->getPaginated(5);
+    public function index(Request $request){
+        
+        $search = $request->search;
+        $books = $this->bookRepository->getPaginated(5, $search);
+        // dd($books);
+
         return view('books.index', compact('books'));
     }
     
