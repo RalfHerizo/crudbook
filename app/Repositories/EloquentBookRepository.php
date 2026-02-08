@@ -7,6 +7,10 @@ use App\Models\Book;
 
 class EloquentBookRepository implements BookrepositoryInterface
 {
+    public function getPaginated($perPage = 10){
+        return Book::orderBy('created_at','desc')->paginate($perPage);
+    }
+
     public function getAll(){
         return Book::orderBy('created_at','desc')->get();
     }
