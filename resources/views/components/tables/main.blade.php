@@ -57,6 +57,7 @@
                                     <x-tables.button 
                                         :book="$book"
                                         modal="deleteModal"
+                                        title="Voulez-vous supprimer ce livre?"
                                         class="delete-book-button text-red-500 dark:hover:text-red-400">
                                             <svg class="w-4 h-4 mr-2" viewbox="0 0 14 15" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

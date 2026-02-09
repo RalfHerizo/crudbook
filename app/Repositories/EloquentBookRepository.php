@@ -46,5 +46,9 @@ class EloquentBookRepository implements BookrepositoryInterface
         $book = Book::destroy($id);
     }
 
+    public function deleteAll(){
+        return Book::truncate();
+    }
+
     
 }

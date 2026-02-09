@@ -18,7 +18,7 @@
                 const editButtons = document.querySelectorAll('.edit-book-button');
                 const readButtons = document.querySelectorAll('.read-book-button');
                 const deleteButtons = document.querySelectorAll('.delete-book-button');
-                const confirmDeleteButton = document.getElementById('confirm-delete-button');
+                const confirmDeleteForm = document.getElementById('confirm-delete-form');
 
                 const modal = document.getElementById('updateProductModal');
                 const form = modal.querySelector('form');
@@ -59,8 +59,12 @@
                     button.addEventListener('click',()=>{
                         const id = button.getAttribute('data-id');
 
-                        const deleteUrl = `${window.location.origin}/delete-book/${id}`;
-                        confirmDeleteButton.setAttribute('href', deleteUrl);
+                        if(id != null){
+                            const deleteUrl = `${window.location.origin}/delete-book/${id}`;
+                            confirmDeleteForm.setAttribute('action', deleteUrl);
+                        } else {
+                            confirmDeleteForm.setAttribute('action', `${window.location.origin}/books/delete/`);
+                        }
                         
                         console.log('Deleted URL : ' ,deleteUrl);                      
 
