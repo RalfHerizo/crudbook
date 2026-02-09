@@ -40,6 +40,6 @@
     <x-tables.preview-modal id="readProductModal" title="Détails du livre" />
     <!-- Delete modal -->
     <x-tables.delete-modal id="deleteModal" title="Voulez-vous supprimer ce livre?" action=""/>
-    <x-tables.delete-modal id="deleteAllModal" title="Voulez-vous tout supprimer?" action="{{route('books.truncate')}}"/>
+    <x-tables.delete-modal id="deleteAllModal" title="Voulez-vous tout supprimer?" action=""/>
     
 @endsection

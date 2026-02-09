@@ -44,13 +44,11 @@ class BookController extends Controller
     }
 
     public function destroy($id){
-        dd("Le livre est supprimé, voici l'id: " . $id);
         $this->bookRepository->delete($id);
         return back()->with('success', 'Livre supprimé avec succès!');
     }
 
     public function truncate(){
-        dd("Tous les livres sont supprimés");
         $this->bookRepository->truncate();
         return back()->with('success', 'Tous livres sont supprimés avec succès !');
     }
