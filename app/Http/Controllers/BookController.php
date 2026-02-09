@@ -18,7 +18,6 @@ class BookController extends Controller
         
         $search = $request->search;
         $books = $this->bookRepository->getPaginated(5, $search);
-        // dd($books);
 
         return view('books.index', compact('books'));
     }

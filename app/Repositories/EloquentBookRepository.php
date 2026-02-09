@@ -16,12 +16,11 @@ class EloquentBookRepository implements BookrepositoryInterface
                         ->orWhere('author', 'like', "%" . $search . "%")
                         ->orWhere('description', 'like', "%" . $search . "%");
                 })
-                ->paginate(10);    
+                ->paginate($perPage);    
         
         } else {
 
-            return Book::orderBy('created_at','desc')
-            ->paginate(10);
+            return Book::orderBy('created_at','desc')->paginate($perPage);
         }
     }
 

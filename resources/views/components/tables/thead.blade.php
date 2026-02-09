@@ -1,4 +1,4 @@
-<thead {{ $attributes->merge(['class'=> "text-xs text-gray-700 uppercase bg-powder-bush dark:bg-gray-700 dark:text-gray-400"]) }} >
+<thead {{ $attributes->merge(['class'=> "text-xs text-gray-50 uppercase bg-gray-600 dark:bg-gray-700 dark:text-gray-400"]) }} >
     <tr>
         <x-tables.th>Titre</x-tables.th>
         <x-tables.th>Auteur</x-tables.th>
