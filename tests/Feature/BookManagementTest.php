@@ -11,7 +11,7 @@ test('welcome_page', function () {
     $response->assertStatus(200);
 });
 
-test('Add book TEST', function(){
+test('Delete book TEST', function(){
     $book = Book::create([
         'title'=>'Juste un livre',
         'author'=>'test est author',
@@ -28,7 +28,7 @@ test('Add book TEST', function(){
     $response->assertSessionHas('success', 'Livre supprimé avec succès!');
 });
 
-test('Looking for a book TEST', function(){
+test('SEARCH for a book TEST', function(){
     Book::create([
         'title'=> 'Harry Potter',
         'author'=> 'J.K. Rowling',
@@ -46,5 +46,27 @@ test('Looking for a book TEST', function(){
     $response->assertStatus(200);
     $response->assertSee('Harry');
     $response->assertDontSee('Le Hobbit');
+
+});
+
+test('update a book TEST', function () {
+    
+    
+    $book = Book::create([
+        'title' => 'Titre Valide',
+        'author' => 'Auteur',
+        'description' => 'Description'
+    ]);
+
+    $response = $this->post(route('books.update', $book->id), [
+        'title' => '', // On envoie du vide
+        'author' => 'Auteur',
+        'description' => 'Description'
+    ]);
+
+    $response->assertStatus(302); 
+    $response->assertSessionHasErrors(['title']);
+
+    $this->assertEquals('Titre Valide', $book->refresh()->title);
 
 });
