@@ -27,7 +27,7 @@ class BookController extends Controller
         $validate_data = $request->validated();
 
         $this->bookRepository->create($validate_data);
-        return redirect()->back()->with('success','Live créé avec succès!');
+        return redirect()->route('books.index')->with('success','Live créé avec succès!');
     }
 
     public function show($id){
@@ -40,16 +40,16 @@ class BookController extends Controller
         $validate_data = $request->validated();
         $this->bookRepository->update( $id , $validate_data );
 
-        return redirect()->back()->with('success','Livre mis à jour avec succès!');
+        return redirect()->route('books.index')->with('success','Livre mis à jour avec succès!');
     }
 
     public function destroy($id){
         $this->bookRepository->delete($id);
-        return back()->with('success', 'Livre supprimé avec succès!');
+        return redirect()->route('books.index')->with('success', 'Livre supprimé avec succès!');
     }
 
     public function truncate(){
         $this->bookRepository->truncate();
-        return back()->with('success', 'Tous livres sont supprimés avec succès !');
+        return redirect()->route('books.index')->with('success', 'Tous livres sont supprimés avec succès !');
     }
 }
